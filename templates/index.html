@@ -24,7 +24,7 @@
   <center class="row">
     <form method="post" class="col-md-6 col-md-offset-3">
       <div class="input-group">
-        <input type="text" class="form-control" name="city" placeholder="Search">
+        <input type="text" class="form-control" name="city" placeholder="Enter city name">
         <div class="input-group-btn">
           <button class="btn btn-primary" type="submit">
             <i class="glyphicon glyphicon-search"></i>
@@ -34,7 +34,11 @@
     </form>
   </center>
   <div class="row">
-    {% if data.country_code and data.coordinate and data.temp and data.pressure and data.humidity %}
+    {% if warning %}
+    <center class="col-md-6 col-md-offset-3">
+      <h3>{{warning}}</h3>
+    </center>
+    {% else %}
     <div class="col-md-6 col-md-offset-3">
       <h1>country code : {{data.country_code}}</h1>
         <h5>City name : {{data.cityname}}</h5>
@@ -43,14 +47,9 @@
         <h5>temp (in celcius) : {{data.temp_cel}}</h5>
         <h5>pressure : {{data.pressure}} </h5>
         <h5>humidity : {{data.humidity}}</h5>
+        <h5>Weather description : {{data.weather_desc}}</h5>
+        <h5>Wind speed : {{data.wind_speed}}</h5>
     </div>
-    {% endif %}
-  </div>
-  <div class="row">
-    {% if warning %}
-    <center class="col-md-6 col-md-offset-3">
-      <h3>{{warning}}</h3>
-    </center>
     {% endif %}
   </div>
 </body>

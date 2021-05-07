@@ -8,7 +8,7 @@ app = Flask(__name__)
 @app.route('/', methods =['POST', 'GET'])
 def weather():
 	if request.method == 'POST':
-		city = request.form['city']
+		city = request.form['city'].lower()
 	else:
 		# for default name surat
 		city = 'surat'
@@ -26,12 +26,15 @@ def weather():
 		dict = response.json()
 		data = {
 			"country_code": dict['sys']['country'],
-			"cityname": city,
+			"cityname": dict['name'],
 			"coordinate": str(dict['coord']['lon']) + ' '
 						  + str(dict['coord']['lat']),
-			"temp": str(dict['main']['temp']) + 'k',
+			"temp": str(dict['main']['temp']) + ' K',
+			"temp_cel": str(float("{:.2f}".format(dict['main']['temp'] - 273.15))) + ' °C',
 			"pressure": str(dict['main']['pressure']),
 			"humidity": str(dict['main']['humidity']),
+			"weather_desc": str(dict['weather'][0]['description']),
+			"wind_speed": str(dict['wind']['speed'])
 		}
 	else :
 		warning = "Something goes wrong"
