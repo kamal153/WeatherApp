@@ -20,15 +20,17 @@
     <div class="row">
       <h1 class="col-md-3 text-center">Weather App</h1>
     </div>
-    <a class="nav-link active " aria-current="page" style="color:#c0fefc;" href="/"><h3 class="col-md-3 text-center">Search By City</h3></a>
-    <a class="nav-link" aria-current="page" style="color:white;" href="/searchByPosition"><h3 class="col-md-3 text-center">Search By Position</h3></a>
+    <a class="nav-link" aria-current="page" style="color:white;" href="/"><h3 class="col-md-3 text-center">Search By City</h3></a>
+    <a class="nav-link active " aria-current="page" style="color:#c0fefc;" href="/searchByPosition"><h3 class="col-md-3 text-center">Search By Position</h3></a>
   </nav>
   <br />
   <br />
   <center class="row">
     <form method="post" class="col-md-6 col-md-offset-3">
       <div class="input-group">
-        <input type="text" class="form-control" name="city" placeholder="Enter city name">
+          <input type="text" class="form-control" name="lat" placeholder="Enter latitude" />
+          <span class="input-group-addon">  </span>
+          <input type="text" class="form-control" name="lon" placeholder="Enter longitude" />
         <div class="input-group-btn">
           <button class="btn btn-primary" type="submit">
             <i class="glyphicon glyphicon-search"></i>
