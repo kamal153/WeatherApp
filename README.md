@@ -1,3 +1,3 @@
 # WeatherApp
 
-Weather app using flask hosted through heroku
+Weather app using flask
