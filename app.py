@@ -49,14 +49,14 @@ def transform_data(response) :
 						  + str(dict['coord']['lat']),
 			"temp": str(dict['main']['temp']) + ' K',
 			"temp_cel": str(float("{:.2f}".format(dict['main']['temp'] - 273.15))) + ' °C',
-			"pressure": str(dict['main']['pressure']),
-			"humidity": str(dict['main']['humidity']),
+			"pressure": str(dict['main']['pressure']) + ' hPa',
+			"humidity": str(dict['main']['humidity']) + '%',
 			"weather_desc": str(dict['weather'][0]['description']),
-			"wind_speed": str(dict['wind']['speed'])
+			"wind_speed": str(dict['wind']['speed']) + ' m/s'
 		}
 	else:
 		warning = "Something goes wrong"
 	return (data,warning)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
